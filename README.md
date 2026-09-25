@@ -73,18 +73,20 @@ Dalam struktur tersebut:
 * Satu `Bank` dapat digunakan oleh beberapa `Account`.
 * `ArrayList<Account>` digunakan pada `User` untuk menyimpan seluruh rekening yang dimiliki user.
 
-### Contoh Penggunaan
+### Contoh Penggunaan di Dalam Kode
 
 ```java
 User dani = new User("Dani");
+User jaki = new User("Jaki");
 
-Account bca = new Account("001", 1000000, new Bank("BCA"));
-Account bcaTabungan = new Account("002", 2000000, new Bank("BCA"));
-Account mandiri = new Account("003", 1500000, new Bank("Mandiri"));
+Account bca1 = new Account("1234567890", bca, 1000000);
+Account bca2 = new Account("9876543210", bca, 500000);
+Account bca3 = new Account("0876543210", bca, 0);
 
-dani.tambahAccount(bca);
-dani.tambahAccount(bcaTabungan);
-dani.tambahAccount(mandiri);
+
+dani.tambahAccount(bca1);
+dani.tambahAccount(bca2);
+dani.tambahAccount(bca3);
 ```
 
 Dengan menggunakan `ArrayList`, objek `Account` dapat ditambahkan ke dalam `User` menggunakan method `add()` tanpa menentukan batas jumlah rekening di awal.
