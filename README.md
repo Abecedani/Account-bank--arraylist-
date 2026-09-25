@@ -86,7 +86,7 @@ Account bca3 = new Account("0876543210", bca, 0);
 
 dani.tambahAccount(bca1);
 dani.tambahAccount(bca2);
-dani.tambahAccount(bca3);
+jaki.tambahAccount(bca3);
 ```
 
 Dengan menggunakan `ArrayList`, objek `Account` dapat ditambahkan ke dalam `User` menggunakan method `add()` tanpa menentukan batas jumlah rekening di awal.
