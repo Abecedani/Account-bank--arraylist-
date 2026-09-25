@@ -1,18 +1,90 @@
-## Getting Started
+## Library Tambahan
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Program ini menggunakan library tambahan dari Java, yaitu:
 
-## Folder Structure
+### `java.util.ArrayList`
 
-The workspace contains two folders by default, where:
+`ArrayList` digunakan untuk menyimpan banyak objek `Account` yang dimiliki oleh seorang `User`.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Import yang digunakan:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+```java
+import java.util.ArrayList;
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Berbeda dengan array biasa (`Account[]`), `ArrayList` memiliki ukuran yang dapat bertambah secara dinamis. Jadi, jumlah rekening yang dimiliki oleh user tidak harus ditentukan sejak awal.
 
-## Dependency Management
+Contohnya:
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```java
+private ArrayList<Account> accounts;
+```
+
+Kemudian `ArrayList` dibuat pada constructor:
+
+```java
+accounts = new ArrayList<>();
+```
+
+Untuk menambahkan rekening:
+
+```java
+accounts.add(account);
+```
+
+Untuk mengakses rekening berdasarkan index:
+
+```java
+accounts.get(0);
+```
+
+Untuk mengetahui jumlah rekening:
+
+```java
+accounts.size();
+```
+
+### Alasan Menggunakan `ArrayList`
+
+`ArrayList` digunakan karena satu `User` dapat memiliki lebih dari satu rekening. Dengan `ArrayList`, rekening dapat ditambahkan secara dinamis tanpa harus menentukan jumlah rekening terlebih dahulu.
+
+Struktur hubungan objek dalam program:
+
+```text
+User Dani
+│
+├── Account BCA
+│   └── Bank BCA
+│
+├── Account BCA Tabungan
+│   └── Bank BCA
+│
+├── Account Mandiri
+│   └── Bank Mandiri
+│
+└── Account BNI
+    └── Bank BNI
+```
+
+Dalam struktur tersebut:
+
+* `User` dapat memiliki banyak `Account`.
+* Setiap `Account` memiliki satu `Bank`.
+* Satu `Bank` dapat digunakan oleh beberapa `Account`.
+* `ArrayList<Account>` digunakan pada `User` untuk menyimpan seluruh rekening yang dimiliki user.
+
+### Contoh Penggunaan
+
+```java
+User dani = new User("Dani");
+
+Account bca = new Account("001", 1000000, new Bank("BCA"));
+Account bcaTabungan = new Account("002", 2000000, new Bank("BCA"));
+Account mandiri = new Account("003", 1500000, new Bank("Mandiri"));
+
+dani.tambahAccount(bca);
+dani.tambahAccount(bcaTabungan);
+dani.tambahAccount(mandiri);
+```
+
+Dengan menggunakan `ArrayList`, objek `Account` dapat ditambahkan ke dalam `User` menggunakan method `add()` tanpa menentukan batas jumlah rekening di awal.
