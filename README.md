@@ -51,19 +51,17 @@ accounts.size();
 Struktur hubungan objek dalam program:
 
 ```text
-User Dani
-│
-├── Account BCA
-│   └── Bank BCA
-│
-├── Account BCA Tabungan
-│   └── Bank BCA
-│
-├── Account Mandiri
-│   └── Bank Mandiri
-│
-└── Account BNI
-    └── Bank BNI
+                 Bank
+          ┌────────┼─────────┐
+          │        │         │
+         BCA    Mandiri     BNI
+          │        │         │
+          │        │         │
+       Account  Account   Account
+          │        │         │
+          ▼        ▼         ▼
+        Dani     Akbar      Ikky
+        jaki
 ```
 
 Dalam struktur tersebut:
