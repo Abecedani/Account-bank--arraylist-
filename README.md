@@ -89,5 +89,5 @@ jaki.tambahAccount(bca3);
 
 Dengan menggunakan `ArrayList`, objek `Account` dapat ditambahkan ke dalam `User` menggunakan method `add()` tanpa menentukan batas jumlah rekening di awal.
 
-Contoh output:
+## Contoh output:
 ![output](lib/image/output.png)
